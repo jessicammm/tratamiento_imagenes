@@ -94,17 +94,14 @@ if __name__ == "__main__":
     # Cargar imagen original desde string base64
     i2 = imagen(s)
 
-    # Redimensionar imagen original
+     # Redimensionar imagen original
     i_redim = i.resize((760, 760))
 
-    # Aplicar blur a la imagen modificada-borrosa
-    i_blur = i_redim.blur(3)
+    # Previsualizar la imagen modificada
+    i_redim.show()
 
-    # Previsualizar la imagen modificada-borrosa
-    i_blur.show()
-
-    # Guardar la imagen modificada-borrosa
-    i_blur.save()
+    # Guardar la imagen modificada
+    i_redim.save()
 
     # Redimensionar a todos los tamanos deseados
     sizes = [

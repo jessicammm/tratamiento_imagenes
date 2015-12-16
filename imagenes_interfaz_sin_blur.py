@@ -54,7 +54,7 @@ class imagen():
             box = (0, int((result.size[1] - size[1]) / 2), int(result.size[0]), int((result.size[1] + size[1]) / 2))
             result = result.crop(box)
         elif ratio < img_ratio:
-            
+
             result = result.resize((int(size[1] * result.size[0] / result.size[1]), int(size[1])),
                                    Image.ANTIALIAS)
 
@@ -100,14 +100,11 @@ if __name__ == "__main__":
     # Redimensionar imagen original
     i_redim = i.resize((150, 150))
 
-    # Aplicar blur a la imagen modificada-borrosa
-    i_blur = i_redim.blur(3)
+    # Previsualizar la imagen modificada
+    i_redim.show()
 
-    # Previsualizar la imagen modificada-borrosa
-    i_blur.show()
-
-    # Guardar la imagen modificada-borrosa
-    i_blur.save()
+    # Guardar la imagen modificada
+    i_redim.save()
 
     # Redimensionar a todos los tamanos deseados
     sizes = [

@@ -97,7 +97,7 @@ if __name__ == "__main__":
     i2 = imagen(s)
 
     # Redimensionar imagen original
-    i_redim = i.resize((150, 150))
+    i_redim = i.resize((760, 760))
 
     # Aplicar blur a la imagen modificada-borrosa
     i_blur = i_redim.blur(3)

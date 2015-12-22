@@ -49,8 +49,8 @@ class imagen():
             result = result.resize((int(size[0]), int(size[0] * result.size[1] / result.size[0])),
                                    Image.ANTIALIAS)
 
-            box = (0, int((result.size[1] - size[1]) / 2), int(result.size[0]), int((result.size[1] + size[1]) / 2))
-            result = result.crop(box)
+           # box = (0, int((result.size[1] - size[1]) / 2), int(result.size[0]), int((result.size[1] + size[1]) / 2))
+            #result = result.crop(box)
         elif ratio < img_ratio:
             result = result.resize((int(size[1] * result.size[0] / result.size[1]), int(size[1])),
                                    Image.ANTIALIAS)
@@ -62,20 +62,11 @@ class imagen():
                                    Image.ANTIALIAS)
         return imagen(result)
 
-    def blur(self, power=2):
-        '''Aplica un efecto blur de una determinada potencia'''
-        padding = 3
-        for i in range(power):
-            result = self.im.filter(ImageFilter.BLUR)
-        result = result.crop((padding, padding, result.size[0] - padding, result.size[1] - padding))
-        result = result.resize(self.im.size, Image.ANTIALIAS)
-        return imagen(result)
-
     def show(self):
         self.im.show()
 
     def save(self):
-        self.im.save('resultados_imagenes_archivo_sin_blur/vertical2', FORMATO_RESULTADO)
+        self.im.save('resultados_imagenes_archivo_sin_blur/vertical3', FORMATO_RESULTADO)
 
 
 if __name__ == "__main__":

@@ -26,8 +26,7 @@ class imagen():
         else:
             try:
                 # Intenta cargarlo como base64
-                buffer = urllib.urlretrieve("http://i2tic.com/wp-content/uploads/2012/12/Logo100x350.png", "Logo100x350.png")
-                self.im = Image.open("Logo100x350.png")
+                self.im = Image.open(urllib.urlretrieve("http://i2tic.com/wp-content/uploads/2012/12/Logo100x350.png"))
             except:
                 # Si falla, intenta cargarlo como archivo
                 self.im = Image.open(origen)
@@ -88,7 +87,7 @@ if __name__ == "__main__":
 
 
     # Cargar imagen original desde archivo
-    i = imagen('tests/Logo100x350.jpg')
+    i = imagen("Logo100x350.png")
 
     # Obtener imagen original como string base64
     s = i.toBase64()
@@ -97,7 +96,7 @@ if __name__ == "__main__":
     i2 = imagen(s)
 
     # Redimensionar imagen original
-    i_redim = i.resize((760, 760))
+    i_redim = i.resize((150, 150))
 
     # Aplicar blur a la imagen modificada-borrosa
     i_blur = i_redim.blur(3)

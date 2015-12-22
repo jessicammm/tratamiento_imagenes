@@ -26,8 +26,9 @@ class imagen():
         else:
             try:
                 # Intenta cargarlo como base64
-                buffer = urllib.urlretrieve("http://i2tic.com/wp-content/uploads/2012/12/Logo100x350.png", "Logo100x350.png")
-                self.im = Image.open("Logo100x350.png")
+                buffer = urllib
+                buffer = urllib.urlopen("http://i2tic.com/wp-content/uploads/2012/12/Logo100x350.png")
+                self.im = Image.open(buffer)
             except:
                 # Si falla, intenta cargarlo como archivo
                 self.im = Image.open(origen)
@@ -65,15 +66,6 @@ class imagen():
                                    Image.ANTIALIAS)
         return imagen(result)
 
-    def blur(self, power=2):
-        '''Aplica un efecto blur de una determinada potencia'''
-        padding = 3
-        for i in range(power):
-            result = self.im.filter(ImageFilter.BLUR)
-        result = result.crop((padding, padding, result.size[0] - padding, result.size[1] - padding))
-        result = result.resize(self.im.size, Image.ANTIALIAS)
-        return imagen(result)
-
     def show(self):
         self.im.show()
 
@@ -89,7 +81,7 @@ if __name__ == "__main__":
 
 
     # Cargar imagen original desde archivo
-    i = imagen('tests/Logo100x350.jpg')
+    i = imagen("http://i2tic.com/wp-content/uploads/2012/12/Logo100x350.png")
 
     # Obtener imagen original como string base64
     s = i.toBase64()
